@@ -1,122 +1,122 @@
 title: $:/plugins/linonetwo/tidgi-external-attachments/readme/zh-Hans
 
-!! 🌟 核心功能
+!! 🌟 Funciones principales
 
-本插件实现将大文件作为「外部附件」智能管理，生成轻量级「引用条目」，保持 Wiki 高效运行。
+Este complemento implementa archivos grandes como「Accesorios externos」Gestion inteligente, generando ligereza「Articulos de referencia」，mantener Wiki Operacion eficiente。
 
-!! 🚀 快速入门
+!! 🚀 Inicio rapido
 
 ```wikitext
-[拖入任意文件] → [预览信息] → [点击"导入"] → ✅ 完成！
+[Arrastra cualquier archivo] → [Vista previa de informacion] → [Haga clic"Importar"] → ✅ completo！
 ```
-* 💡 自动创建 `files` 目录
-* 🔗 生成规范相对路径
-* 🌍 完美兼容网页部署
+* 💡 Creacion automatica `files` Tabla de contenidos
+* 🔗 Generar rutas relativas canonicas.
+* 🌍 Perfectamente compatible con la implementacion de paginas web
 
-!! 🛠 功能详解
+!! 🛠 Explicacion detallada de funciones.
 
-!!! 🖱️ 拖放导入流程
-* ✓ 任意位置拖入文件（桌面/下载目录等）
-* ✓ 自动生成预览信息（条目字段/文件移动位置等）
-* ✓ 点击确认后：
-** 🗂️ 自动移动至 `files` 目录（若开启）
-** 📝 创建带 `_canonical_uri` 的引用条目
-* ✓ 智能识别 `./files` 目录下文件：
-** 🎯 直接引用原位置，不移动文件
-** 📋 方便批量导入后用 Tiddler Commander 编辑字段
+!!! 🖱️ Proceso de importacion de arrastrar y soltar
+* ✓ Arrastre archivos a cualquier lugar (escritorio/Directorio de descargas, etc.）
+* ✓ Generar automaticamente informacion de vista previa (campo de entrada/Ubicacion del movimiento de archivos, etc.）
+* ✓ Despues de hacer clic en Confirmar：
+** 🗂️ Mover automaticamente a `files` Directorio (si esta habilitado)）
+** 📝 Crea una banda `_canonical_uri` Referencias a
+* ✓ Reconocimiento inteligente `./files` Archivos en el directorio：
+** 🎯 Haga referencia directa a la ubicacion original sin mover el archivo.
+** 📋 Conveniente para la importacion por lotes y su uso posterior Tiddler Commander Editar campos
 
-!!! 🗑️ 删除管理功能
-* ✓ 删除条目时自动处理外部文件
-* ✓ 一键将关联文件移至回收站
-* ✓ 保持文件系统整洁有序
-* ✓ 配合 TidGi 自动 Git 备份，提供完整安全保障
+!!! 🗑️ Eliminar funciones de gestion.
+* ✓ Procesar automaticamente archivos externos al eliminar entradas
+* ✓ Mueva los archivos asociados a la Papelera de reciclaje con un clic
+* ✓ Mantenga su sistema de archivos limpio y organizado
+* ✓ cooperar TidGi Automatico Git Copia de seguridad para brindar total garantia de seguridad.
 
-!!! ⚙️ 路径管理规则
+!!! ⚙️ Reglas de gestion de rutas.
 
-* ◻︎ 默认模式（推荐）：
-** → 自动维护 `files` 目录结构
-** → 始终使用相对路径（`files/example.pdf`）
-* ◻︎ 高级模式（如果修改了[[配置|$:/plugins/linonetwo/tidgi-external-attachments/settings]]）：
-** → 可自定义存储目录
-** → Wiki外文件使用绝对路径（需手动维护）
+* ◻︎ Modo predeterminado (recomendado）：
+** → Mantenimiento automatico `files` Estructura del directorio
+** → Utilice siempre rutas relativas（`files/example.pdf`）
+* ◻︎ Modo avanzado (si se modifica[[Configuracion|$:/plugins/linonetwo/tidgi-external-attachments/settings]]）：
+** → Directorio de almacenamiento personalizable
+** → WikiUtilice rutas absolutas para archivos externos (se requiere mantenimiento manual)）
 
-!!! 🏷️ 子 Wiki 路由支持
+!!! 🏷️ hijo Wiki Soporte de enrutamiento
 
-* ✓ 根据条目标签自动路由到对应子 Wiki
-* ✓ 文件自动保存到匹配子 Wiki 的 `files` 目录
-* ✓ 支持以下路由规则（按优先级）：
-** 🎯 直接标签匹配：条目标签匹配子 Wiki 的 tagNames
-** 🌳 标签树匹配：启用 includeTagTree 时支持递归标签层级
-** 🔍 自定义过滤器：使用 fileSystemPathFilter 表达式匹配
-* 💡 使用步骤：
-** → 在 TidGi 设置中配置子 Wiki 的 tagNames
-** → 示例：子 Wiki「项目A」设置 tagNames 为 `["ProjectA"]`
-** → 导入文件时，在导入对话框中添加标签 `ProjectA`
-** → 点击导入后，文件自动移动到「项目A」子 Wiki 的 files 文件夹
-** → 条目也会自动保存到「项目A」子 Wiki
-* 🔄 标签变更自动同步：
-** → 修改已有附件条目的标签时，文件会自动移动到新的子 Wiki
-** → `_canonical_uri` 路径会自动更新
-** → 条目和文件始终保持同步
-* ⚠️ 路由注意事项：
-** → 未匹配到子 Wiki 时，默认保存到主 Wiki 的 files 目录
-** → 子 Wiki 路由使用与 FileSystemAdaptor 相同的逻辑
-** → 确保子 Wiki 已正确配置 tagNames 或 fileSystemPathFilter
+* ✓ Enrutar automaticamente a la subrutina correspondiente segun la etiqueta de entrada Wiki
+* ✓ El archivo se guarda automaticamente en el subdirectorio correspondiente. Wiki de `files` Tabla de contenidos
+* ✓ Admite las siguientes reglas de enrutamiento (por prioridad）：
+** 🎯 Coincidencia directa de etiquetas: subcombinacion de etiquetas de entrada Wiki de tagNames
+** 🌳 Coincidencia de arbol de etiquetas: habilitada includeTagTree Admite jerarquia de etiquetas recursiva
+** 🔍 Filtro personalizado: utilizar fileSystemPathFilter Coincidencia de expresiones
+* 💡 Pasos de uso：
+** → en TidGi Configurar sub en la configuracion Wiki de tagNames
+** → Ejemplo: sub Wiki「ProyectoA」Configuracion tagNames para `["ProjectA"]`
+** → Al importar archivos, agregue etiquetas en el cuadro de dialogo de importacion. `ProjectA`
+** → Despues de hacer clic en Importar, el archivo se mueve automaticamente a「ProyectoA」hijo Wiki de files Carpeta
+** → Las entradas tambien se guardaran automaticamente en「ProyectoA」hijo Wiki
+* 🔄 Sincronizacion automatica de cambios de etiquetas.：
+** → Al modificar la etiqueta de una entrada de archivo adjunto existente, el archivo se movera automaticamente a una nueva subcarpeta. Wiki
+** → `_canonical_uri` La ruta se actualizara automaticamente.
+** → Las entradas y los archivos siempre estan sincronizados
+* ⚠️ Consideraciones de ruta：
+** → No se encontro ninguna coincidencia Wiki , guardar en la pagina principal de forma predeterminada Wiki de files Tabla de contenidos
+** → hijo Wiki Uso de rutas y FileSystemAdaptor Misma logica
+** → Asegurate de que el nino Wiki Configurado correctamente tagNames o fileSystemPathFilter
 
-!! ⚠️ 重要注意事项
+!! ⚠️ NOTAS IMPORTANTES
 
-!!! 🔗 路径兼容性
-* 🚫 绝对路径文件：
-** 📌 仅限本地设备访问
-** 🌐 网页部署不可用
-** 🔄 跨设备同步失效
-* ✅ 相对路径文件：
-** 📦 支持全平台同步
-** 🚀 即插即用式部署
+!!! 🔗 Compatibilidad de rutas
+* 🚫 Archivo de ruta absoluta：
+** 📌 Acceso unicamente a dispositivos locales
+** 🌐 La implementacion de la pagina web no esta disponible
+** 🔄 La sincronizacion entre dispositivos falla
+* ✅ Archivo de ruta relativa：
+** 📦 Admite sincronizacion completa de plataforma
+** 🚀 Implementacion plug-and-play
 
-!!! ⏳ 操作时机
-* 🕒 文件移动发生在「导入」按钮点击后
-* ↩️ 取消操作不会产生残留文件
-* 🆕 首次使用自动创建目录结构
-* 🗑️ 文件删除发生在条目删除时（若开启）
+!!! ⏳ Momento de la operacion
+* 🕒 El movimiento de archivos ocurre en「Importar」Despues de hacer clic en el boton
+* ↩️ Cancelar la operacion no producira archivos residuales.
+* 🆕 Cree automaticamente una estructura de directorios para el primer uso.
+* 🗑️ La eliminacion de archivos se produce cuando se elimina una entrada (si esta habilitada).）
 
-!! 🔗 扩展应用：外部链接技巧
+!! 🔗 Aplicacion ampliada: habilidades de enlace externo
 
-[[📄 查看更多外部链接示例|$:/plugins/linonetwo/tidgi-external-attachments/extlink]]
+[[📄 Ver mas ejemplos de enlaces externos|$:/plugins/linonetwo/tidgi-external-attachments/extlink]]
 
-!!! 📎 文件链接最佳实践
+!!! 📎 Mejores practicas para vincular archivos
 ```wikitext
-[ext[📂 打开文件夹|file://./files/]]
-[ext[📄 查看PDF|file://files/文档.pdf]]
+[ext[📂 Abre la carpeta.|file://./files/]]
+[ext[📄 VerPDF|file://files/Documentacion.pdf]]
 ```
-* 💡 必须添加 `file://` 协议头
-* 🚫 网页端不支持此协议
+* 💡 Debe agregarse `file://` Encabezado del protocolo
+* 🚫 La pagina web no soporta este protocolo.
 
-!!! ❌ 常见误区
-* 附件字段（`_canonical_uri`）：
-** 🚫 相对路径不应包含 `file://` 前缀或 `./` 前缀
-** ✅ 正确示例：`_canonical_uri: files/图片.jpg`
-** 文件链接或绝对路径才需要加 `file://` 前缀（而一般你只用得着附件字段里的相对路径）
-* 正文链接：
-** ✅ 必须包含 `file://` 前缀
-** 错误示例：`[ext[链接|files/文件.pdf]]`
+!!! ❌ Malentendidos comunes
+* Campo adjunto（`_canonical_uri`）：
+** 🚫 Las rutas relativas no deben contener `file://` prefijo o `./` Prefijo
+** ✅ Ejemplo correcto：`_canonical_uri: files/Imagenes.jpg`
+** Solo es necesario agregar enlaces de archivos o rutas absolutas `file://` Prefijo (y generalmente solo necesita la ruta relativa en el campo adjunto)）
+* Enlace de texto：
+** ✅ Debe contener `file://` Prefijo
+** Ejemplos de errores：`[ext[Enlaces|files/Archivo.pdf]]`
 
-!! 🧰 故障排查
+!! 🧰 Solucion de problemas
 
-| 现象               | 解决方案                |
-| 文件未移动          | ✔️ 检查是否点击"导入"按钮 |
-| 网页版加载失败      | ✔️ 确认使用默认`files`目录 |
-| 跨设备路径失效      | ✔️ 开启自动移动功能       |
-| 删除条目后文件仍存在 | ✔️ 确认已开启"删除时移至回收站" |
-| 需要批量导入编辑    | ✔️ 先整理到`files`目录后拖入 |
+| Fenomeno               | Solucion                |
+| Archivo no movido          | ✔️ Comprueba si hace clic"Importar"Boton |
+| La version web no pudo cargarse      | ✔️ Confirme para usar el valor predeterminado`files`Tabla de contenidos |
+| Fallo en la ruta entre dispositivos      | ✔️ Active la funcion de movimiento automatico.       |
+| El archivo aun existe despues de eliminar la entrada. | ✔️ Confirma que este encendido."Muevase a la Papelera de reciclaje al eliminar" |
+| Necesidad de importar y editar por lotes    | ✔️ Organiza primero`files`Arrastre despues del directorio |
 
-!! 🌐 跨平台支持
+!! 🌐 Soporte multiplataforma
 
-关闭此插件时，拖入的内容会直接作为条目存入，兼容性最好，但会大幅增大太微文件体积，且会严重拖慢启动速度。以下是兼容性示意图。
+Cuando se cierra este complemento, el contenido arrastrado se guardara directamente como una entrada, lo que tiene la mejor compatibilidad, pero aumentara considerablemente el tamano del archivo y reducira seriamente la velocidad de inicio. El siguiente es un diagrama de compatibilidad.。
 
-| 平台      | 附件支持 | 链接支持 | 作为条目 |
+| Plataforma      | Soporte para archivos adjuntos | Soporte de enlace | Como entrada |
 | Windows  | ✅       | ✅      | ✅      |
 | macOS    | ✅       | ✅      | ✅      |
 | Linux    | ✅       | ✅      | ✅      |
-| 网页部署  | ✅       | ❌      | ✅      |
-| 移动端    | ❓       | ❌      | ✅      |
+| Implementacion de paginas web  | ✅       | ❌      | ✅      |
+| Version movil    | ❓       | ❌      | ✅      |

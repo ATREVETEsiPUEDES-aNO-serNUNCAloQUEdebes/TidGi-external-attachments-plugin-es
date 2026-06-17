@@ -1,37 +1,37 @@
 title: $:/plugins/linonetwo/tidgi-external-attachments/settings/zh-Hans
-caption: 外部附件
+caption: Accesorios externos
 
-!! 配置项
+!! Elementos de configuracion
 
-<$checkbox tiddler="$:/config/ExternalAttachments/Enable" field="text" checked="yes" unchecked="no" default="no"> <$link to="$:/config/ExternalAttachments/Enable" >启用本插件，将拖入的二进制文件都作为「引用条目」导入</$link> </$checkbox>
+<$checkbox tiddler="$:/config/ExternalAttachments/Enable" field="text" checked="yes" unchecked="no" default="no"> <$link to="$:/config/ExternalAttachments/Enable" >Habilite este complemento y use los archivos binarios arrastrados como「Articulos de referencia」Importar</$link> </$checkbox>
 
-<$checkbox tiddler="$:/config/ExternalAttachments/EnableForImage" field="text" checked="yes" unchecked="no" default="yes"> <$link to="$:/config/ExternalAttachments/EnableForImage">在拖入图片时也导入为附件</$link> </$checkbox> 如果关闭，则图片会被直接导入为内置的图片条目而不是附件，增大文件体积拖慢启动速度，但提高兼容性。
+<$checkbox tiddler="$:/config/ExternalAttachments/EnableForImage" field="text" checked="yes" unchecked="no" default="yes"> <$link to="$:/config/ExternalAttachments/EnableForImage">Al arrastrar una imagen, tambien se importa como un archivo adjunto.</$link> </$checkbox> Si esta desactivado, las imagenes se importaran directamente como elementos de imagen integrados en lugar de como archivos adjuntos, lo que aumenta el tamano del archivo y ralentiza la velocidad de inicio, pero mejora la compatibilidad.。
 
-<$checkbox tiddler="$:/config/ExternalAttachments/MoveToWikiFolder" field="text" checked="yes" unchecked="no" default="no"> <$link to="$:/config/ExternalAttachments/MoveToWikiFolder">自动将拖入的文件移动到 Wiki 文件夹内</$link> </$checkbox>
+<$checkbox tiddler="$:/config/ExternalAttachments/MoveToWikiFolder" field="text" checked="yes" unchecked="no" default="no"> <$link to="$:/config/ExternalAttachments/MoveToWikiFolder">Mueva automaticamente los archivos arrastrados a Wiki En la carpeta</$link> </$checkbox>
 
-<$checkbox tiddler="$:/config/ExternalAttachments/MoveToTrash" field="text" checked="yes" unchecked="no" default="yes"> <$link to="$:/config/ExternalAttachments/MoveToTrash">删除条目时将关联的外部文件移动到回收站</$link> </$checkbox>
+<$checkbox tiddler="$:/config/ExternalAttachments/MoveToTrash" field="text" checked="yes" unchecked="no" default="yes"> <$link to="$:/config/ExternalAttachments/MoveToTrash">Mueva los archivos externos asociados a la Papelera de reciclaje al eliminar una entrada</$link> </$checkbox>
 
 <%if [{$:/config/ExternalAttachments/MoveToWikiFolder}match[yes]] %>
 
-  <$edit-text tiddler="$:/config/ExternalAttachments/WikiFolderToMove" tabindex=-1 focus=false cancelPopups="yes" fileDrop=no tag="input" /> 自动移动文件到 Wiki 文件夹里的这个文件夹里（建议保持用 `files`）。
+  <$edit-text tiddler="$:/config/ExternalAttachments/WikiFolderToMove" tabindex=-1 focus=false cancelPopups="yes" fileDrop=no tag="input" /> Mover archivos automaticamente a Wiki En esta carpeta en la carpeta (se recomienda mantener `files`）。
 
 <% else %>
 
   <$checkbox tiddler="$:/config/ExternalAttachments/UseAbsoluteForNonDescendents" field="text" checked="yes" unchecked="no" default="no">
     <$link to="$:/config/ExternalAttachments/UseAbsoluteForNonDescendents">
-      为 Wiki 文件夹''外''的附件使用绝对路径（文件在电脑上的任何地方）
+      para Wiki Carpeta''Afuera''Utilice rutas absolutas para los archivos adjuntos (los archivos estan en cualquier lugar de su computadora)）
     </$link>
   </$checkbox>
-  <$checkbox tiddler="$:/config/ExternalAttachments/UseAbsoluteForDescendents" field="text" checked="yes" unchecked="no" default="no"> <$link to="$:/config/ExternalAttachments/UseAbsoluteForDescendents">使用绝对路径引用 Wiki 文件夹''内''的文件（不推荐开启）</$link> </$checkbox>
+  <$checkbox tiddler="$:/config/ExternalAttachments/UseAbsoluteForDescendents" field="text" checked="yes" unchecked="no" default="no"> <$link to="$:/config/ExternalAttachments/UseAbsoluteForDescendents">Utilice referencias de ruta absolutas Wiki Carpeta''Adentro''archivos (no recomendado para abrir）</$link> </$checkbox>
 
 <% endif %>
 
 
-!! 推荐配置
+!! Configuracion recomendada
 
-* 保持「自动移动文件到 Wiki 文件夹内」开启（默认启用）
-* 保留默认存储目录为 `files` 
-* 始终关闭「为 Wiki 内文件使用绝对路径」
-* 默认开启「删除条目时移动关联外部文件到回收站」功能，以简化外部应用管理，反正太记有自动git备份可以随时回档
+* mantener「Mover archivos automaticamente a Wiki En la carpeta」Habilitar (habilitado de forma predeterminada)）
+* Mantenga el directorio de almacenamiento predeterminado como `files` 
+* Siempre cerrado「para Wiki Utilice rutas absolutas para archivos internos」
+* Habilitado de forma predeterminada「Mueva los archivos externos asociados a la Papelera de reciclaje al eliminar una entrada」Funcion para simplificar la gestion de aplicaciones externas, Taiji tiene funcion automaticagitLa copia de seguridad se puede revertir en cualquier momento.
 
-阅读[[插件说明|$:/plugins/linonetwo/tidgi-external-attachments/readme]]了解更多信息。
+Lectura[[Descripcion del complemento|$:/plugins/linonetwo/tidgi-external-attachments/readme]]Mas informacion。

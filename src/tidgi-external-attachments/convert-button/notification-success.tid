@@ -1,5 +1,5 @@
 title: $:/plugins/linonetwo/tidgi-external-attachments/notifications/conversion-success
 
-成功将 <<title>> 转换为外部附件！
+El exito sera <<title>> Convertir a un archivo adjunto externo！
 
-文件已保存到：<<filepath>>
+El archivo se ha guardado en：<<filepath>>

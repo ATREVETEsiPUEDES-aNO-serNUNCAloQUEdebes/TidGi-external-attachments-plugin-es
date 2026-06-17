@@ -19,7 +19,7 @@ Then drag&drop file into TidGi will create a skinny tiddler. Try edit that tiddl
 TidGi supports link and `_canonical_uri` to use `file://` prefix (or `open://`, both works the same), for example:
 
 ```wikitext
-[ext[Some External File Link with CJK character|file:///Users/linonetwo/Downloads/(OCRed)奖励的惩罚 (（美）科恩著) (Z-Library).pdf]]
+[ext[Some External File Link with CJK character|file:///Users/linonetwo/Downloads/(OCRed)Castigo de recompensas (（Estados Unidos) de Cohen) (Z-Library).pdf]]
 
 [ext[An External Folder Link|file:///Users/linonetwo/Downloads/]]
 ```
